@@ -134,7 +134,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
       translationsStatus[fileInfo.fileUri] = translationMerged;
     } catch (e) {
-      console.error('Error processing file', { exception: e, fileContent: file });
+      console.error('Error processing file', { exception: e, fileContentUri: fileInfo.fileUri });
       translationsStatus[fileInfo.fileUri] = false;
     }
   }
