@@ -130,7 +130,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const params = new CreateJobParameters({
       jobName: `${getJobNamePrefix({
         entityId: payloadObject.entity.id,
-        entityType: payloadObject.entity.type,
+        entityType: payloadObject.entity.type === 'component' ? 'composition' : 'entry',
         slug: payloadObject.entity.name,
         projectId: payloadObject.project.id,
       })}__${new Date().toISOString()}`,
